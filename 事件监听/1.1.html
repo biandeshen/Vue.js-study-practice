@@ -9,14 +9,18 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <button v-on:click="counter += 1">加一</button>
+        <button v-on:click="counter -= 1">减一</button>
+        <button v-on:click="counter *= 1">乘一</button>
+        <button v-on:click="counter /= 1">除一</button>
+        <p>按钮被点击{{ counter }} 次.</p>
     </div>
 
     <script>
         new Vue({
             el:'#app',
             data:{
-                message:'Hello Vue.js World!'
+                counter:0
             }
         })
     </script>

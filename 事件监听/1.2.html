@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>监听事件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 直接在v-on中传递一个方法名称 -->
+        <button v-on:click="countered">显示</button>
+
+        <p>这个按钮{{counter}}被点击了！</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+                // `this` 在方法里指向当前 Vue 实例
+                countered: function () {
+                    alert('Hello Vue ' + this.counter + '!');
+                    // `event` 是原生 DOM 事件
+                    // 很遗憾，不知道为什么在Chrome可以执行，但是在Firefox中无法执行
+                    if (window.event) {
+                        alert(window.event.target.tagName)
+                        alert(window.event.srcElement.tagName)
+                    }
+                }
+            }
+        })
+
+        // 也可以用 JavaScript 直接调用方法
+        app.greet() // => 'Hello Vue.js!'
+        </script>
+</body>
+
+</html>

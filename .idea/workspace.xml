@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be035758-119c-4a80-b1d0-74fa725bf097" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/1/1.1.html" afterPath="$PROJECT_DIR$/1/1.1.html" />
-      <change beforePath="$PROJECT_DIR$/1/1.2.html" afterPath="$PROJECT_DIR$/1/1.2.html" />
-      <change beforePath="$PROJECT_DIR$/1/1.3.html" afterPath="$PROJECT_DIR$/1/1.3.html" />
-      <change beforePath="$PROJECT_DIR$/1/1.4.html" afterPath="$PROJECT_DIR$/1/1.4.html" />
-      <change beforePath="$PROJECT_DIR$/1/1.5.html" afterPath="$PROJECT_DIR$/1/1.5.html" />
-      <change beforePath="$PROJECT_DIR$/1/1.6.html" afterPath="$PROJECT_DIR$/1/1.6.html" />
-      <change beforePath="$PROJECT_DIR$/1/1.7.html" afterPath="$PROJECT_DIR$/1/1.7.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.1.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.1.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.2.2.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.2.2.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.2.3.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.2.3.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.2.3s.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.2.3s.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.2.4.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.2.4.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.2.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.2.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.3.1.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.3.1.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.3.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.3.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.4.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.4.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.5.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.5.html" />
-      <change beforePath="$PROJECT_DIR$/Class与Style绑定/1.html" afterPath="$PROJECT_DIR$/Class与Style绑定/1.html" />
-      <change beforePath="$PROJECT_DIR$/列表渲染/1.1.html" afterPath="$PROJECT_DIR$/列表渲染/1.1.html" />
-      <change beforePath="$PROJECT_DIR$/列表渲染/1.2.html" afterPath="$PROJECT_DIR$/列表渲染/1.2.html" />
-      <change beforePath="$PROJECT_DIR$/列表渲染/1.3.html" afterPath="$PROJECT_DIR$/列表渲染/1.3.html" />
-      <change beforePath="$PROJECT_DIR$/列表渲染/1.3s.html" afterPath="$PROJECT_DIR$/列表渲染/1.3s.html" />
-      <change beforePath="$PROJECT_DIR$/条件渲染/1.1.html" afterPath="$PROJECT_DIR$/条件渲染/1.1.html" />
-      <change beforePath="$PROJECT_DIR$/条件渲染/1.2.html" afterPath="$PROJECT_DIR$/条件渲染/1.2.html" />
-      <change beforePath="$PROJECT_DIR$/条件渲染/1.3.html" afterPath="$PROJECT_DIR$/条件渲染/1.3.html" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,26 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Class与Style绑定/1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="问答机器人.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/问答机器人.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="1.1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/列表渲染/1.1.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -121,12 +76,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/计算属性和观察者/1.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
               <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2_重要.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/计算属性和观察者/2_重要.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="108">
+                <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -154,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/1/1.1.html" />
         <option value="$PROJECT_DIR$/1/1.2.html" />
         <option value="$PROJECT_DIR$/1/1.3.html" />
@@ -181,6 +158,7 @@
         <option value="$PROJECT_DIR$/条件渲染/1.2.html" />
         <option value="$PROJECT_DIR$/条件渲染/1.3.html" />
         <option value="$PROJECT_DIR$/计算属性和观察者/1.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -407,12 +385,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516675901472</updated>
-      <workItem from="1516675903139" duration="951000" />
+      <workItem from="1516675903139" duration="1201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="951000" />
+    <option name="totallyTimeSpent" value="1201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -459,17 +437,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1/1.8.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -693,6 +660,25 @@
         <state relative-caret-position="189">
           <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/计算属性和观察者/2_重要.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="108">
+            <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
