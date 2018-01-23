@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定内联样式-数组</title>
+    <script src="/static/js/vue.js"></script>
+</head>
+
+
+
+<body>
+    <div id="app">
+        <div v-bind:style="{background:bg,fontSize:fz}">Hello World!</div>
+        <div v-bind:style="styleObj">Hello World!</div>
+        <div v-bind:style="[bgc,s]">Hello World!</div>
+    </div>
+
+    <script>
+        // 注意点：许多参数都是字符串，需要根据正常情景来设置，如果忘记，则格式不正确，无法渲染，就会出现空白页
+        var app = new Vue({
+            el:"#app",
+            data:{
+                bg:"blue",
+                fz:"22px",
+                styleObj:{
+                    width:"100px",
+                    background:"yellow"
+                },
+                bgc:{
+                    background:"green"
+                },
+                s:{
+                    width:"50px",
+                    height:"33px"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

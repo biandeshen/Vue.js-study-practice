@@ -1,0 +1,43 @@
+<!-- /*
+ * @Author: biandeshen.fanjiangpan 
+ * @Date: 2018-01-22 14:34:06 
+ * @Last Modified by:   biandeshen.fanjiangpan 
+ * @Last Modified time: 2018-01-22 14:34:06 
+ */ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件渲染-v-if与v-for一起使用</title>
+    <script src="/static/js/vue.js"></script>
+</head>
+<!-- 具体关于加key与不加key的区别可以在https://segmentfault.com/a/1190000010957766看到 -->
+<!-- ps:记得要加引用this -->
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in todo" v-if="item.ok">{{item.text}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                todo: [
+                    { text: "吃饭", ok: true },
+                    { text: "睡觉", ok: true },
+                    { text: "打豆豆", ok: true }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

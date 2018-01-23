@@ -1,0 +1,59 @@
+<!-- /*
+ * @Author: biandeshen.fanjiangpan 
+ * @Date: 2018-01-22 14:38:55 
+ * @Last Modified by:   biandeshen.fanjiangpan 
+ * @Last Modified time: 2018-01-22 14:38:55 
+ */ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染-$emit的用法</title>
+    <script src="/static/js/vue.js"></script>
+</head>
+<!-- 具体关于加key与不加key的区别可以在https://segmentfault.com/a/1190000010957766看到 -->
+<!-- ps:记得要加引用this -->
+
+<body>
+    <div id="app">
+        <input placeholder="请输入一个新的item!" v-model="newItem" v-on:keyup.13="addItem">
+        <ul>
+            <li is="my-templete" v-for="(item,index) in items" v-bind:key="item.id" v-bind:text="item.text" v-on:remove="items.splice(index,1)"></li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.component('my-templete', {
+            template: `
+                <li>{{text}}<button v-on:click="$emit('remove')">删除</button></li>
+            `,
+            props: ['text']
+        })
+        var app = new Vue({
+            el: "#app",
+            data: {
+                newItem:'',
+                items: [
+                    { id: 1, text: "我" },
+                    { id: 2, text: "爱" },
+                    { id: 3, text: "你" }
+                ],
+                nextId: 4
+            },
+            methods:{
+                addItem:function(){
+                    this.items.push({
+                        id:this.items.nextId++,
+                        text:this.newItem
+                    }),
+                    this.newItem=''
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

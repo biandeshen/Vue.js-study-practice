@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定内联样式</title>
+    <script src="/static/js/vue.js"></script>
+</head>
+
+<style>
+    .active {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div v-bind:style="{background:bg,width:w,border:b}">Hello World!</div>
+        <div v-bind:style="styleObject">Hello World!</div>
+    </div>
+    <div id="app1">
+        <div v-bind:style="{background:a,border:b,width:c}">内联样式</div>
+        <div v-bind:style="classObj">内联样式</div>
+    </div>
+    <script>
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                bg: "red",
+                w: "100px",
+                b: "5px",
+                styleObject: {
+                    background: "red",
+                    border: "5px solid #ccc",
+                    width: "100px",
+                    marginTop: "10px"
+                }
+            }
+        })
+    </script>
+    <script>
+
+        var app1 = new Vue({
+            el: "#app1",
+            data: {
+                a: "red",
+                b: "5px solid #ccc",
+                c: "100px",
+                classObj: {
+                    background: "red",
+                    border: "5px solid #ccc",
+                    width: "100px",
+                    marginTop: "10px"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

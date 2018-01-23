@@ -1,0 +1,56 @@
+<!--
+ @Author: biandeshen.fanjiangpan 
+ @Date: 2018-01-19 14:18:42 
+ @Last Modified by: biandeshen.fanjiangpan
+ @Last Modified time: 2018-01-19 14:19:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app-test">
+        <p>{{result()}}</p>
+    </div>
+    <div id="app-test1">
+        <p>{{result1}}</p>
+    </div>
+    <div id="app-test2">
+        <p>{{result2}}</p>
+        <input v-model="result2">
+    </div>
+
+    <script>
+        var apptest = new Vue({
+            el: '#app-test',
+            methods: {
+                result: function () {
+                    return Date.now();
+                }
+            }
+        })
+
+        var apptest1 = new Vue({
+            el: '#app-test1',
+            computed: {
+                result1: function () {
+                    return Date.now();
+                }
+            }
+        })
+        var apptest2 = new Vue({
+            el: '#app-test2',
+            data: {
+                result2: "hahahahaha"
+            }
+        })
+
+    </script>
+</body>
+
+</html>

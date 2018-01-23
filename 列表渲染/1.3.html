@@ -1,0 +1,61 @@
+<!-- /*
+ * @Author: biandeshen.fanjiangpan 
+ * @Date: 2018-01-22 14:38:55 
+ * @Last Modified by:   biandeshen.fanjiangpan 
+ * @Last Modified time: 2018-01-22 14:38:55 
+ */ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染-一个组件的v-for</title>
+    <script src="/static/js/vue.js"></script>
+</head>
+<!-- 具体关于加key与不加key的区别可以在https://segmentfault.com/a/1190000010957766看到 -->
+<!-- ps:记得要加引用this -->
+
+<body>
+    <div id="app">
+        <input v-model="newTodoText" v-on:keyup.enter="addNews" placeholder="请输入文本">
+        <ul>
+            <li is="todo-item" v-for="(todo,index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" v-on:remove="todos.splice(index,1)">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.component('todo-item', {
+            template: `<li>{{title}}
+                    <button v-on:click="$emit('remove')">X</button>
+                    </li>
+            `,
+            props: ['title']
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                newTodoText: '',
+                todos: [
+                    { id: 1, title: 'first' },
+                    { id: 2, title: 'second' },
+                    { id: 3, title: 'third' }
+                ],
+                nextTodoId: 4
+            },
+            methods: {
+                addNews: function () {
+                    this.todos.push({
+                        id: this.nextTodoId++,
+                        title: this.newTodoText
+                    })
+                    this.newTodoText = ''
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>机器人</title>
+    <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css" media="all">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<style>
+    .layui-btn-normal {
+        background-color: #1E9FFF
+    }
+
+    .layui-btn {
+        display: inline-block;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer
+    }
+
+    .layui-btn:hover {
+        opacity: .8;
+        filter: alpha(opacity=80);
+        color: #fff
+    }
+
+    .layui-btn:active {
+        opacity: 1;
+        filter: alpha(opacity=100)
+    }
+
+    .layui-btn+.layui-btn {
+        margin-left: 10px
+    }
+
+    .layui-input,
+    .layui-select,
+    .layui-textarea,
+    .layui-upload-button {
+        outline: 0;
+        -webkit-appearance: none;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        box-sizing: border-box
+    }
+
+    .layui-input,
+    .layui-select,
+    .layui-textarea {
+        height: 38px;
+        line-height: 1.3;
+        line-height: 38px\9;
+        border-width: 1px;
+        border-style: solid;
+        background-color: #fff;
+        border-radius: 2px
+    }
+
+    .layui-input::-webkit-input-placeholder,
+    .layui-select::-webkit-input-placeholder,
+    .layui-textarea::-webkit-input-placeholder {
+        line-height: 1.3
+    }
+
+    .layui-input,
+    .layui-textarea {
+        display: block;
+        width: 100%;
+        padding-left: 10px
+    }
+
+    .layui-input:hover,
+    .layui-textarea:hover {
+        border-color: #D2D2D2!important
+    }
+
+    .layui-input:focus,
+    .layui-textarea:focus {
+        border-color: #C9C9C9!important
+    }
+
+    .layui-textarea {
+        min-height: 100px;
+        height: auto;
+        line-height: 20px;
+        padding: 6px 10px;
+        resize: vertical
+    }
+</style>
+
+<body>
+    <div id="watch-example">
+        <p>
+            提出你的问题:
+            <input v-model="question" class="layui-input">
+            <!-- 保留提问历史 -->
+        </p>
+        <button class="layui-btn layui-btn-normal" v-on:click="getAnswer">发送</button>
+        <p>{{ answer }}</p>
+        <!-- 保留回复历史 -->
+    </div>
+
+    <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+    <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script>
+        var watchExampleVM = new Vue({
+            el: '#watch-example',
+            data: {
+                question: '',
+                answer: '在你提出问题之前我不能给你答复!'
+            },
+            watch: {
+                // 如果 `question` 发生改变，这个函数就会运行
+                question: function (newQuestion, oldQuestion) {
+                    this.answer = '等待你停止输入……'
+                    /* this.getAnswer() */
+                }
+            },
+            methods: {
+                // `_.debounce` 是一个通过 Lodash 限制操作频率的函数。
+                // 在这个例子中，我们希望限制访问 yesno.wtf/api 的频率
+                // AJAX 请求直到用户输入完毕才会发出。想要了解更多关于
+                // `_.debounce` 函数 (及其近亲 `_.throttle`) 的知识，
+                // 请参考：https://lodash.com/docs#debounce
+                getAnswer: _.debounce(
+                    function () {
+                        /*                         if (this.question.indexOf('?') === -1) {
+                                                    this.answer = 'Questions usually contain a question mark. ;-)'
+                                                    return
+                                                } */
+                        this.answer = 'Thinking...'
+                        var vm = this
+                        axios.get('http://jisuznwd.market.alicloudapi.com/iqa/query', {
+                            params: {
+                                question: watchExampleVM.question
+                            },
+                            headers: { 'Authorization': 'APPCODE b418219052d642199cec7b745c6380c4' }
+                        })
+                            .then(function (response) {
+                                vm.answer = _.capitalize(response.data.result.content)
+                            })
+                            .catch(function (error) {
+                                vm.answer = 'Error! Could not reach the API. ' + error
+                            })
+                    },
+                    // 这是我们为判定用户停止输入等待的毫秒数
+                    500
+                )
+            }
+        })
+    </script>
+</body>
+
+</html>

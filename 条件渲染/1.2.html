@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>条件渲染-key</title>
+        <script src="/static/js/vue.js"></script>
+    </head>
+    <!--
+     @Author: biandeshen.fanjiangpan 
+     @Date: 2018-01-22 13:53:57 
+     @Last Modified by:   biandeshen.fanjiangpan 
+     @Last Modified time: 2018-01-22 13:53:57 
+     -->
+    <!-- 具体关于加key与不加key的区别可以在https://segmentfault.com/a/1190000010957766看到 -->
+    <!-- ps:记得要加引用this -->
+<body>
+    <div id="app">
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+        </template>
+        <input type="button" v-on:click="changeType" value="改变登录方式">
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                loginType:'username'
+            },
+            methods:{
+                changeType:function(){
+                    if (this.loginType == 'username') {
+                        this.loginType = 'Email'
+                    } else {
+                        this.loginType = "username"
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

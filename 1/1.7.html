@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/static/js/vue.js"></script>
+</head>
+<body>
+    <div id="app-7">
+        <ol>
+            <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id">
+        </todo-item>
+    </ol>
+    <!-- <todo-item1 v-for="item in groceryList" v-bind:todo1="item" v-bind:key="item.id"></todo-item1> -->
+    </div>
+
+    <script>
+        Vue.component('todo-item',{
+            props: ['todo','key'],
+            template:'<li>{{todo.text}}</li>'
+        })
+
+        Vue.component('todo-item1', {
+            props: ['todo1', 'key'],
+            template: '<li>{{todo1.text}}</li>'
+        })
+
+        var app7 = new Vue({
+            el:'#app-7',
+            data:{
+                groceryList:[
+                    { id: 0, text: '蔬菜' },
+                    { id: 1, text: '奶酪' },
+                    { id: 2, text: '随便什么东西' }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
