@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复选框</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <script src="/static/js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 单个复选框 -->
+    <div id="single-checkbox">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+    </div>
+    <!-- 多个复选框 -->
+    <!-- 传入数组的是其value值 -->
+    <div id="multi-checkbox">
+            <input type="checkbox" id="football" v-model="checkedNames" value="football" >
+            <label for="football">football</label>
+            <input type="checkbox" id="basketball" v-model="checkedNames" value="basketball">
+            <label for="basketball">basketball</label>
+            <input type="checkbox" id="baseball" v-model="checkedNames" value="baseball">
+            <label for="baseball">baseball</label>
+            <br>
+            <!-- 此处需要仔细思考，如何能将一个对象转换为数组，且每次都正常刷新 -->
+        <!-- <span>checkedNames数组的值为：{{checkedNames.join(" ").toString()}}</span> -->
+        <span>checkedNames数组的值为：{{names}}</span>
+    </div>
+    <script>
+        var single = new Vue({
+            el: "#single-checkbox",
+            data: {
+                checked: false
+            }
+        })
+        var multi = new Vue({
+            el: "#multi-checkbox",
+            data: {
+                names: "",
+                checkedNames: [],
+            },
+            watch: {
+                'checkedNames': function () {
+                    multi.names = multi.checkedNames.join(" ").toString();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
