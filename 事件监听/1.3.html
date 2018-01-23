@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内联处理器中的方法</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 内联JavaScript语句中调用方法 -->
+        <button v-on:click="say('hi')">Say Hi</button>
+        <button v-on:click="say('hello')">Say Hello</button>
+        <!-- 访问原始DOM事件 用特殊变量$event把它传入方法 -->
+        <button v-on:click="warn('原始DOM事件',$event)">Say DOM</button>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+              say:function(message){
+                  alert(message)
+              },
+              warn:function(message,event){
+                  if (event) {
+                      event.preventDefault();
+                      alert(message)
+                  }
+              }
+            }
+        })
+
+
+        </script>
+</body>
+
+</html>
