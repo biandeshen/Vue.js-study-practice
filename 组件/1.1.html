@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件-使用组件</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    无代码，参见官网：
+    <a href="https://vuejs.bootcss.com/v2/guide/components.html#%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6">组件-使用组件</a>
+    <br>
+    <br>
+    <!-- 局部注册 -->
+    <div id="example">
+        <my-component></my-component>
+    </div>
+    <script>
+        var Child = {
+            template: '<div>A custom component!</div>'
+        }
+
+        new Vue({
+            el:"#example",
+            components: {
+                // <my-component> 将只在父组件模板中可用
+                'my-component': Child
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

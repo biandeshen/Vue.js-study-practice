@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件-Prop-Prop 验证</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="/static/js/vue.js"></script>
+</head>
+
+<body>
+    我们可以为组件的 prop 指定验证规则。如果传入的数据不符合要求，Vue 会发出警告。 <br>
+    这对于开发给他人使用的组件非常有用。 要指定验证规则，需要用对象的形式来定义 prop， 而不能用字符串数组：<br>
+    <hr>
+    <h4>ps:查看页面源代码或官网 <a href="https://vuejs.bootcss.com/v2/guide/components.html#Prop-%E9%AA%8C%E8%AF%81">Prop验证</a></h4>
+    <script>
+
+        Vue.component('example',
+            {
+                props: {
+                    // 基础类型检测 (`null` 指允许任何类型) 
+                    propA: Number,
+                    // 可能是多种类型 
+                    propB: [String, Number],
+                    // 必传且是字符串 
+                    propC: {
+                        type: String,
+                        required: true
+                    },
+                    // 数值且有默认值 
+                    propD: {
+                        type: Number, default: 100
+                    },
+                    // 数组/对象的默认值应当由一个工厂函数返回 
+                    propE: {
+                        type: Object, default:
+                            function () {
+                                return {
+                                    message: 'hello'
+                                }
+                            }
+                    },
+                    // 自定义验证函数 
+                    propF: {
+                        validator: function (value) { return value > 10 }
+                    }
+                }
+            })
+    </script> 
+    
+    <code>
+
+        type 可以是下面原生构造器：
+          String
+          Number 
+          Boolean 
+          Function 
+          Object 
+          Array 
+          Symbol 
+          type 
+          也可以是一个自定义构造器函数，使用 instanceof 检测。 当 prop 验证失败，
+          Vue会抛出警告 (如果使用的是开发版本)。
+          注意 prop 会在组件实例创建之前进行校验，
+          所以在 default 或 validator 函数里，
+          诸如 data、computed 或 methods 等实例属性还无法使用。
+
+
+    </code>
+
+</body>
+
+</html>

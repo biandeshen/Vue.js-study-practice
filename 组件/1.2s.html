@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件-Prop-使用props传递数据</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="/static/js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 局部注册 -->
+    <div id="example">
+        <mychild v-bind:message="parentmessage"></mychild>
+        <br>
+        <br>
+
+    </div>
+    <div id="example2">
+        <!-- 
+            如果你想把一个对象的所有属性作为 prop 进行传递，
+            可以使用不带任何参数的 v-bind (即用 v-bind 而不是 v-bind:prop-name)。 
+            ps:事实证明最好还是加一个参数，用以表示名字，而不是省略
+         -->
+        <todo-item v-bind:text="todos"></todo-item>
+    </div>
+    <script>
+        Vue.component("mychild", {
+            // 此处传递的父组件的参数是v-bind处的绑定参数名，而并非是后面的字符串
+            props: ['message'],
+            template: '<div>{{message}}</div>'
+        })
+
+        Vue.component("todo-item", {
+            props:['text'],
+            template: '<div>{{text.text}}<br>{{text.isWorking}}</div>'
+        })
+
+        var example = new Vue({
+            el: "#example",
+            data: {
+                //??这样就将上面绑定的字符串和data中的参数绑定一起了？
+                parentmessage: "hello1",
+            }
+        })
+        var example2 = new Vue({
+            el: "#example2",
+            data: {
+                todos: {
+                    text: "jack",
+                    isWorking: false
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
