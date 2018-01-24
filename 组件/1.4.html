@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件-自定义事件-使用v-on绑定自定义事件</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="/static/js/vue.js"></script>
+</head>
+
+<body>
+    <h4>内容</h4>
+    <code>
+         <li>使用 $on(eventName) 监听事件 </li>
+         <li>使用 $emit(eventName) 触发事件</li>
+    </code>
+    <div>
+        <div id="app">
+            <p>{{total}}</p>
+            <!-- 这是父亲，监听的名称也设置为了father，也就是说儿子要告诉（触发）也得到这里 -->
+            <!-- 父亲听到后要做的就是参数的值绑定的行为 -->
+            <button-container v-on:father="incrementTotal"></button-container>
+            <button-container v-on:father="incrementTotal"></button-container>
+        </div>
+
+    </div>
+
+    <script>
+        Vue.component('button-container',{
+            template:"<button v-on:click='incrementCounter'>{{counter}}</button>",
+            data () {
+                return {
+                    counter:0
+                }
+            },
+            methods:{
+                incrementCounter:function(){
+                    this.counter += 1
+                    // 告诉（触发）自己的父亲，名字要对
+                    this.$emit('father')
+                }
+            }
+        })
+
+        new Vue({
+            el:"#app",
+            data:{
+                total:0
+            },
+            methods:{
+                incrementTotal:function(){
+                    this.total += 1
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
