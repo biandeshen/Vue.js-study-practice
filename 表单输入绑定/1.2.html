@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>复选框</title>
+    <title>基础用法2</title>
     <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
-    <script src="/static/js/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 
 <body>
@@ -19,16 +19,54 @@
     <!-- 多个复选框 -->
     <!-- 传入数组的是其value值 -->
     <div id="multi-checkbox">
-            <input type="checkbox" id="football" v-model="checkedNames" value="football" >
-            <label for="football">football</label>
-            <input type="checkbox" id="basketball" v-model="checkedNames" value="basketball">
-            <label for="basketball">basketball</label>
-            <input type="checkbox" id="baseball" v-model="checkedNames" value="baseball">
-            <label for="baseball">baseball</label>
-            <br>
-            <!-- 此处需要仔细思考，如何能将一个对象转换为数组，且每次都正常刷新 -->
+        <input type="checkbox" id="football" v-model="checkedNames" value="football">
+        <label for="football">football</label>
+        <input type="checkbox" id="basketball" v-model="checkedNames" value="basketball">
+        <label for="basketball">basketball</label>
+        <input type="checkbox" id="baseball" v-model="checkedNames" value="baseball">
+        <label for="baseball">baseball</label>
+        <br>
+        <!-- 此处需要仔细思考，如何能将一个对象转换为数组，且每次都正常刷新 -->
         <!-- <span>checkedNames数组的值为：{{checkedNames.join(" ").toString()}}</span> -->
         <span>checkedNames数组的值为：{{names}}</span>
+    </div>
+    <div id="single-button">
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>picked:{{picked}}</span>
+    </div>
+    <!-- 选择框 -->
+    <div id="select-box">
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected:{{selected}}</span>
+    </div>
+    <!-- 选择框 多选 绑定到数组-->
+    <div id="select-multibox">
+        <select v-model="selected" multiple >
+            <option disabled value="">请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>Selected:{{selected}}</span>
+    </div>
+    <!-- 选择框 v-for渲染 -->
+    <div id="select-box1">
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+        </select>
+        <span>Selected:{{selected}}</span>
     </div>
     <script>
         var single = new Vue({
@@ -49,6 +87,35 @@
                 }
             }
         })
+        var sigleButton = new Vue({
+            el: "#single-button",
+            data: {
+                picked: ''
+            }
+        })
+        var selectedBox = new Vue({
+            el: "#select-box",
+            data: {
+                selected: ''
+            }
+        })
+        var selectedBox1 = new Vue({
+            el: "#select-box1",
+            data: {
+                selected: '',
+                options: [
+                    { text: "A", value: 'A' },
+                    { text: "B", value: 'B' },
+                    { text: "C", value: 'C' }
+                ]
+            }
+        })
+        var selectMultibox = new Vue({
+                el: "#select-multibox",
+                data: {
+                    selected: []
+                }
+            })
     </script>
 </body>
 
