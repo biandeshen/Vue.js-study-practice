@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件-动态组件</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="/static/js/vue.js"></script>
+</head>
+
+<body>
+    <h4>内容</h4>
+    <code>
+         <li>使用 $on(eventName) 监听事件 </li>
+         <li>使用 $emit(eventName) 触发事件</li>
+    </code>
+    <div>
+        <div id="app">
+            <p>{{total}}</p>
+            <!-- 这是父亲，监听的名称也设置为了father，也就是说儿子要告诉（触发）也得到这里 -->
+            <!-- 父亲听到后要做的就是参数的值绑定的行为 -->
+            <button-container v-on:father="incrementTotal"></button-container>
+            <button-container v-on:father="incrementTotal"></button-container>
+            <!-- 组件在vm.currentview变化时变化 ，同时，绑定监听，它也是父组件-->
+            <component v-bind:is="currentView" v-on:father="incrementTotal"></component>
+            <!-- 如果把切换出去的组件保留在内存中，可以保留它的状态或避免重新渲染。为此可以添加一个 keep-alive 指令参数：
+             -->
+            <keep-alive>
+                <component v-bind:is="currentView" v-on:father="incrementTotal"></component>
+            </keep-alive>
+        </div>
+
+    </div>
+
+    <script>
+
+        var buttonContainer = Vue.component('button-container', {
+            template: "<button v-on:click='incrementCounter'>{{counter}}</button>",
+            data() {
+                return {
+                    counter: 0,
+                }
+            },
+            methods: {
+                incrementCounter: function () {
+                    this.counter += 1
+                    // 告诉（触发）自己的父亲，名字要对应上
+                    this.$emit('father')
+                }
+            }
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                total: 0,
+                // 动态组件切换
+                currentView: 'buttonContainer'
+            },
+            methods: {
+                incrementTotal: function () {
+                    this.total += 1
+                }
+            },
+            components: {
+                //可以对动态切换的组件也进行定义，其本身就是正常的Vue.component
+                first: {
+                    template: "<button v-on:click='incrementCounter'>{{counter}}</button>",
+                    data() {
+                        return {
+                            counter: 0,
+                        }
+                    },
+                    methods: {
+                        incrementCounter: function () {
+                            this.counter += 1
+                            // 告诉（触发）自己的父亲，名字要对应上
+                            this.$emit('father')
+                        }
+                    }
+                },
+                second: { template: "<p>this is not true</p>" },
+                //可见，通过将定义好的组件命名后，也可放在此处进行注册，以便选择
+                buttonContainer,
+
+            }
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
