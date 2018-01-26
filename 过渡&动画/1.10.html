@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过渡和动画-列表过渡-列表的进入/离开过渡</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="/static/js/vue.js"></script>
+</head>
+
+<style>
+    .list-complete-item {
+        transition: all 1s;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .list-complete-enter,
+    .list-complete-leave-to
+    /* .list-complete-leave-active for below version 2.1.8 */
+
+        {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .list-complete-leave-active {
+        position: absolute;
+    }
+</style>
+
+<body>
+    <!-- 列表的一切变动都会有动画过渡 -->
+     <!-- 需要注意的是使用 FLIP 过渡的元素不能设置为 display: inline 。
+        作为替代方案，可以设置为 display: inline-block 或者放置于 flex 中 -->
+    <div id="list-complete-demo" class="demo">
+        <button v-on:click="shuffle">Shuffle</button>
+        <button v-on:click="add">Add</button>
+        <button v-on:click="remove">Remove</button>
+        <transition-group name="list-complete" tag="p">
+            <span v-for="item in items" v-bind:key="item" class="list-complete-item">
+                {{ item }}
+            </span>
+        </transition-group>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#list-complete-demo',
+        data: {
+            items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            nextNum: 10
+        },
+        methods: {
+            randomIndex: function () {
+                //随机的产生一个 数组长度大小的 范围内的值 如产生1-10的随机数
+                //return Math.floor(Math.random() * this.items.length)
+                //此处产生一个随机索引，用以增加和删除
+                return Math.floor(Math.random() * this.items.length)
+            },
+            add: function () {
+                //在随机索引处 删除0个项目 添加新的值
+                this.items.splice(this.randomIndex(), 0, this.nextNum++)
+            },
+            remove: function () {
+                //移除索引处 后 一个值
+                this.items.splice(this.randomIndex(), 1)
+            },
+            shuffle: function () {
+                this.items = _.shuffle(this.items)
+            }
+        }
+    })
+</script>
+
+</html>
